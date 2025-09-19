@@ -1,14 +1,18 @@
 import glob
 import pandas as pd
 
+# Create an empty list to append csv data to
 data_frames = []
 
+# Get a list of all the csv files
 csv_files = glob.glob('*.csv')
 
+# Read each file into a pandas dataframe and then append to the list
 for csv_file in csv_files:
     sales = pd.read_csv(csv_file)
     data_frames.append(sales)
 
+# Concatinate csv data
 combined_csv = pd.concat(data_frames, ignore_index=True)
 
 # Filter for pink morsel only

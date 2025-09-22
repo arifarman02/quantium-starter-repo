@@ -3,6 +3,7 @@ import plotly.express as px
 import pandas as pd
 
 df = pd.read_csv('./data/sales.csv')
+df = df.sort_values(by='date')
 
 app = Dash(__name__)
 

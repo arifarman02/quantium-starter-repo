@@ -1,4 +1,4 @@
-from dash import Dash, html, dcc, callback, Output, Input
+from dash import Dash, html, dcc
 import plotly.express as px
 import pandas as pd
 
@@ -14,7 +14,7 @@ app.layout = html.Div(children=[
         id='line-chart',
         figure=fig
     )
-]),
+])
 
 
 if __name__ == '__main__':

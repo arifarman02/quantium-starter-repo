@@ -7,11 +7,42 @@ df = df.sort_values(by='date')
 
 app = Dash(__name__)
 
-app.layout = html.Div(children=[
-    html.H1(children='pink morsel sales'),
-    dcc.RadioItems(['north', 'south', 'east', 'west', 'all'], 'all', id='radio-items-input'),
-    dcc.Graph(id='graph-output')
-], style={'padding': 10, 'flex': 1})
+colors = {
+    'background': '#FACBAA',
+    'text': '#FFFFFF'
+}
+
+app.layout = html.Div(style={'backgroundColor': colors['background']}, children=[
+    html.H1(
+        children='Pink Morsel Sales',
+        style={
+            'textAlign': 'center',
+            'color': colors['text'],
+            'paddingTop': '20px',
+            'fontSize': '2.5rem'
+        }
+    ),
+    html.Div(children=[
+        html.P(
+            'Select a region:',
+            style={'textAlign': 'center', 'color': colors['text']}
+        ),
+        dcc.RadioItems(
+            ['north', 'south', 'east', 'west', 'all'],
+            'all',
+            id='radio-items-input',
+            inline=True,
+            style={
+                'textAlign': 'center',
+                'color': colors['text']
+            }
+        ),
+        dcc.Graph(
+            id='graph-output',
+            style={'padding': '20px'}
+        )
+    ], style={'padding': 10, 'flex': 1, 'textAlign': 'center'}),
+])
 
 @callback(
     Output('graph-output', 'figure'),

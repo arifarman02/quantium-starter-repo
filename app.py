@@ -48,6 +48,7 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
     Output('graph-output', 'figure'),
     Input('radio-items-input', 'value')
 )
+
 def update_graph(region_value):
     if region_value == 'all':
         dff = df
